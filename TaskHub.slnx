@@ -2,5 +2,9 @@
   <Folder Name="/backend/" />
   <Folder Name="/backend/src/">
     <Project Path="backend/src/TaskHub.Api/TaskHub.Api.csproj" />
+    <Project Path="backend/src/TaskHub.Domain/TaskHub.Domain.csproj" />
+  </Folder>
+  <Folder Name="/backend/tests/">
+    <Project Path="backend/tests/TaskHub.UnitTests/TaskHub.UnitTests.csproj" />
   </Folder>
 </Solution>
