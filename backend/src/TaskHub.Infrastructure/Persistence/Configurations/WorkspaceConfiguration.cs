@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TaskHub.Domain.Entities;
+using TaskHub.Infrastructure.Identity;
 
 namespace TaskHub.Infrastructure.Persistence.Configurations;
 
@@ -33,5 +34,10 @@ public sealed class WorkspaceConfiguration
 
         builder.HasIndex(workspace => workspace.OwnerId)
             .HasDatabaseName("ix_workspaces_owner_id");
+
+        builder.HasOne<AppUser>()
+        .WithMany()
+        .HasForeignKey(workspace => workspace.OwnerId)
+        .OnDelete(DeleteBehavior.Restrict);
     }
 }

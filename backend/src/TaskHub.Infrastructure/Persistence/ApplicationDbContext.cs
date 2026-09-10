@@ -1,10 +1,13 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TaskHub.Domain.Entities;
+using TaskHub.Infrastructure.Identity;
 
 namespace TaskHub.Infrastructure.Persistence;
 
 public sealed class ApplicationDbContext
-    : DbContext
+    : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
 {
     public ApplicationDbContext(
         DbContextOptions<ApplicationDbContext> options
